@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.IsTouchingLayers(_enemyLayer))
         {
-            // collision.GetComponent<Enemy>().Damage(attackDamage);
+            collision.GetComponent<Enemy>().Damage(attackDamage);
             Destroy(gameObject);
         }
         // INSTANTIATE THE IMPACT PARTICLE SYSTEM ON IMPACT POSITION

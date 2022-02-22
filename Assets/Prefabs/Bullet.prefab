@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d6a6fbe0cba9b4d9cf4eeefd26f18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 16
+  attackDamage: 20
   impactPS: {fileID: 900744269628566678, guid: e44bd2e011fee4e45bb9a71badef9234, type: 3}
 --- !u!114 &8521786632926626891
 MonoBehaviour:
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_LightType: 2
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.924718, g: 1, b: 0.47547168, a: 1}
+  m_Color: {r: 0.90288657, g: 1, b: 0.3150943, a: 1}
   m_Intensity: 5
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 898f2e7081de2f8f6fe4e25e000000007deab1910f313490

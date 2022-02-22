@@ -794,7 +794,10 @@ GameObject:
   - component: {fileID: 945625395}
   - component: {fileID: 945625397}
   - component: {fileID: 945625398}
-  m_Layer: 0
+  - component: {fileID: 945625400}
+  - component: {fileID: 945625399}
+  - component: {fileID: 945625401}
+  m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,7 +828,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945625392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.0500016, y: -5.5000014, z: 0}
+  m_LocalPosition: {x: 1.5, y: -7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 975362802}
@@ -894,7 +897,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -902,7 +905,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &945625397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,12 +957,59 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.4, y: 0.9}
   m_Direction: 0
+--- !u!95 &945625399
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945625392}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8123b5afa9fc6e4187b123101354029, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &945625400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945625392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2e82a7a784f3648ab64bc4a50a4965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  patrolSpots:
+  - {fileID: 1546935549}
+  - {fileID: 1450521139}
+--- !u!114 &945625401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945625392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0ee7da973fef14dac15ada6ba33a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &958169370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1145,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5331435935356632713, guid: 3377a33381c436a448891142a31ccbdc, type: 3}
+  m_Sprite: {fileID: -5331435935356632713, guid: 8c73eca2104d15b459b4002ccf476afb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1170,7 +1220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5879551707bb8c2498b66962b093b1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 5
 --- !u!95 &966922182
 Animator:
   serializedVersion: 3
@@ -1240,7 +1290,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 966922176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b9b619e4eb7d64eb95ab7df831ffeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 880d71e8434fa5543b0c2290a13eec7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &970163288
@@ -2111,7 +2161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617193066}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.312, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0.312, y: -0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 970163289}

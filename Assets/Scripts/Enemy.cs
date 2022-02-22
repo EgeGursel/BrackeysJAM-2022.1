@@ -36,12 +36,13 @@ public class Enemy : MonoBehaviour
     public void Damage(int damage)
     {
         _currHP -= damage;
+        Debug.Log("Enemy HP: " + _currHP);
         if (_currHP <= 0)
         {
             Die();
             return;
         }
-        _anim.SetTrigger("Damaged");
+        _anim.SetTrigger("Hurt");
     }
 
     // DIE (CALLED IN THE DAMAGE METHOD WHEN CURRENT HP IS LESS THAN OR EQUAL TO 0)
@@ -64,6 +65,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             _playerHealth.TakeDamage(attackDamage);
+            Debug.Log("Player took " + attackDamage + " damage");
         }
         return;
     }

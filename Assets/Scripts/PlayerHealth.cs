@@ -18,6 +18,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        return;
+        Debug.Log("Player took " + damage + " damage");
     }
 }
