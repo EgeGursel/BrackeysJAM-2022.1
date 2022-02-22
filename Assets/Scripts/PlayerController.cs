@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 7f;
     private Rigidbody2D rb;
-    private Vector2 movement;
     private Animator anim;
     void Start()
     {
@@ -15,14 +14,14 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        anim.SetFloat("Horizontal", movement.x);
-        anim.SetFloat("Vertical", movement.y);
+        anim.SetFloat("Horizontal", rb.velocity.x);
     }
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        diff.Normalize();
+        float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+        rb.velocity = transform.right * moveSpeed;
     }
 }
