@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+SCRIPT FOR THE SOUND OBJECTS ON THE AUDIO MANAGER PREFAB
+FOLLOWED A BRACKEYS TUTORIAL FOR THIS ONE
+*/
+
 [System.Serializable]
 public class Sound
 {

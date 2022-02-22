@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+THIS SCRIPT IS WRITTEN BY A UNITY EMPLOYEE BCS THERE IS NO OFFICIAL WAY TO MAKE A PARTICLE SYSTEM GLOW 
+(IN 2D AT LEAST) SO I JUST COPIED IT FROM THE FORUM AND CHANGED IT A BIT
+*/
+
 [RequireComponent(typeof(ParticleSystem))]
 public class GlowingParticles : MonoBehaviour
 {

@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+AUDIO MANAGER, DROP ALL THE SOUND SOURCES ON THE PREFAB THIS SCRIPT'S ON
+FOLLOWED A BRACKEYS TUTORIAL FOR THIS ONE, THEN ADDED A STOP() METHOD TO STOP SOUNDS
+*/
+
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;

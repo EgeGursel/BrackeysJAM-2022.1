@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+REFERENCE THIS SCRIPT BY "CameraShake.Instance.Shake(instensity float, length float);"
+FOLLOWED A CINEMACHINE2D CAMERA SHAKE TUTORIAL TO WRITE IT
+*/
+
 public class CameraShake : MonoBehaviour
 {
     public static CameraShake Instance
