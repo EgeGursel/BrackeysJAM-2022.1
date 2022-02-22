@@ -32,6 +32,14 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
 
         // MOVE FORWARD
-        _rb.velocity = transform.right * moveSpeed;
+        if (Input.GetKey(KeyCode.W))
+        {
+            _rb.velocity = transform.right * moveSpeed;
+        }
+        else
+        {
+            _rb.velocity = Vector2.zero;
+        }
+        
     }
 }
