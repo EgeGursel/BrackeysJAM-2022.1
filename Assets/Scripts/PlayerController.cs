@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _anim;
     private Camera _cam;
+    private Vector2 _movement;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -20,7 +21,14 @@ public class PlayerController : MonoBehaviour
     // ANIMATE THE PLAYER IN ACCORDANCE TO IT'S RIGIDBODY2D'S VELOCITY
     void Update()
     {
-        _anim.SetFloat("Horizontal", _rb.velocity.x);
+        _movement.x = Input.GetAxisRaw("Horizontal");
+        _movement.y = Input.GetAxisRaw("Vertical");
+        _anim.SetFloat("MoveSpeed", _movement.sqrMagnitude);
+
+        if (_rb.velocity.y > _rb.velocity.x)
+        {
+            transform.localScale = new Vector3(1, -1, 1);
+        }
     }
 
     // MAKE PLAYER LOOK AT THE CURSOR AND MOVE FORWARD
@@ -31,15 +39,6 @@ public class PlayerController : MonoBehaviour
         float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
 
-        // MOVE FORWARD
-        if (Input.GetKey(KeyCode.W))
-        {
-            _rb.velocity = transform.right * moveSpeed;
-        }
-        else
-        {
-            _rb.velocity = Vector2.zero;
-        }
-        
+        _rb.MovePosition(_rb.position + _movement * moveSpeed * Time.fixedDeltaTime);       
     }
 }
