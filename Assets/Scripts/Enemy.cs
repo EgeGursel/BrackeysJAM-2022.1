@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public GameObject damagePopup;
     public ParticleSystem hurtPS;
     private Animator _anim;
-    private DamagePopup _damagePopup;
+    private TextMesh _popupTM;
 
     // ATTACK
     private float curTime = 0;
@@ -33,16 +33,16 @@ public class Enemy : MonoBehaviour
         _currHP = maxHP;
         _anim = GetComponent<Animator>();
         _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        _damagePopup = damagePopup.GetComponent<DamagePopup>();
+        _popupTM = damagePopup.GetComponent<TextMesh>();
     }
 
     // TAKE DAMAGE
-    public void Damage(int damage)
+    public void Damage(int damage, Color color)
     {
         _currHP -= damage;
-        _damagePopup.damage = damage;
-        Vector3 popupRot = new Vector3(0, 0, Random.Range(15, -15));
-        Instantiate(damagePopup, transform.position, Quaternion.Euler(popupRot));
+        _popupTM.color = color;
+        _popupTM.text = damage.ToString();
+        Instantiate(damagePopup, transform.position, Quaternion.Euler(Vector3.zero));
         if (_currHP <= 0)
         {
             Die();
