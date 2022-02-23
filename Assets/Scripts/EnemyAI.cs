@@ -6,17 +6,18 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public LayerMask collidableLayer;
+    public Transform[] moveSpots;
     public float roamMoveSpeed;
     public float agroMoveSpeed;
-    public float agroRange;
+    public int agroRange;
     private float _moveSpeed;
     private Transform _player;
     private Vector3 _startPos;
     private Vector3 _roamPos;
     private Vector3 _targetPos;
     private Rigidbody2D _rb;
-
+    private Animator _anim;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class EnemyAI : MonoBehaviour
         _startPos = transform.position;
         _roamPos = GetRoamPos();
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,20 +40,23 @@ public class EnemyAI : MonoBehaviour
         {
             _moveSpeed = roamMoveSpeed;
             _targetPos = _roamPos;
+
             if (Vector2.Distance(transform.position, _roamPos) < 0.2f)
             {
                 _roamPos = GetRoamPos();
             }
         }
-        transform.position = Vector2.MoveTowards(transform.position, _targetPos, _moveSpeed * Time.deltaTime);
-
+        Vector3 newPos = Vector2.MoveTowards(transform.position, _targetPos, _moveSpeed * Time.deltaTime);
         Vector3 diff = (_targetPos - transform.position).normalized;
         float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+
+        transform.SetPositionAndRotation(newPos, Quaternion.Euler(0, 0, rotationZ));
     }
 
     private Vector3 GetRoamPos()
     {
-        return _startPos + new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)).normalized * Random.Range(3, 8);
+        int randIndex = Random.Range(0, moveSpots.Length);
+        return moveSpots[randIndex].position;
+        // return _startPos + new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)).normalized * Random.Range(3, 8);
     }
 }

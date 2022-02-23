@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private Animator _anim;
 
     // ATTACK
+    private float curTime = 0;
     public int attackDamage = 20;
     private PlayerHealth _playerHealth;
 
@@ -60,12 +61,19 @@ public class Enemy : MonoBehaviour
     }
 
     // CHECK COLLIDED OBJECT TAG ON COLLISION AND DAMAGE IT IF IT'S THE PLAYER
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _playerHealth.TakeDamage(attackDamage);
+            if (curTime <= 0)
+            {
+                _playerHealth.TakeDamage(attackDamage);
+                curTime = 0.6f;
+            }
+            else
+            {
+                curTime -= Time.deltaTime;
+            }
         }
-        return;
     }
 }
