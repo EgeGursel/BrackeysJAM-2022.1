@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     {
         _currHP -= damage;
         _damagePopup.damage = damage;
-        Vector3 popupRot = new Vector3(0, 0, Random.Range(25, -25));
+        Vector3 popupRot = new Vector3(0, 0, Random.Range(15, -15));
         Instantiate(damagePopup, transform.position, Quaternion.Euler(popupRot));
         if (_currHP <= 0)
         {

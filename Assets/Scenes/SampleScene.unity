@@ -843,8 +843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.25, y: -1.25}
-  m_SizeDelta: {x: -0.5, y: -2.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234371700
 MonoBehaviour:
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c27f119d035ffbc458aa53d7b052d71d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ab5a30b4a2f5654eb8242399c3a86a2, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1.81
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &234371701
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1065,8 +1065,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 256
+  m_RefResolutionY: 144
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -3804,8 +3804,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -115, y: 79}
-  m_SizeDelta: {x: 78, y: 13.5}
+  m_AnchoredPosition: {x: -113, y: 75}
+  m_SizeDelta: {x: 80, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9204014697354608650
 MonoBehaviour:
@@ -3914,8 +3914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.25, y: -1.25}
-  m_SizeDelta: {x: -0.49999997, y: -2.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9204014698559842623
 MonoBehaviour:
@@ -3937,7 +3937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7d47f0baaef644c4abd3a26215e4fd0d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08f0f49c5c646724695bbe07a1bd1ccb, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3946,7 +3946,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1.81
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &9204014698559842624
 MonoBehaviour:
   m_ObjectHideFlags: 0
