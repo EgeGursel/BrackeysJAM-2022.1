@@ -10,6 +10,7 @@ ALSO DAMAGE ANY COLLIDED ENEMIES BY ACCESING THEIR <Enemy> SCRIPT
 public class Bullet : MonoBehaviour
 {
     // REFERENCES
+    public GameObject damagePopup;
     public int attackDamage; // THE VALUE CAN BE CHANGED VIA REFERENCING IT FROM ANOTHER SCRIPT OR THROUGH THE EDITOR
     public ParticleSystem impactPS; // REFERENCE TO THE PARTICLE SYSTEM THAT WILL BE INSTANTIATED WHEN THE BULLET COLLIDES WITH SOMETHING
     private Rigidbody2D _rb; // REFERENCE TO THE BULLET'S RIGIDBODY SO IT CAN MOVE
@@ -18,7 +19,6 @@ public class Bullet : MonoBehaviour
     {
         // GIVING VALUES TO THE REFERENCES ABOVE
         _rb = GetComponent<Rigidbody2D>();
-
         // MOVING THE BULLET'S RIGIDBODY2D FORWARD ON START
         _rb.velocity = transform.right * 25;
     }
@@ -27,6 +27,8 @@ public class Bullet : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Enemy>().Damage(attackDamage);
+            Instantiate(damagePopup, transform.position, Quaternion.Euler(0, 0, 0));
+            DamagePopup.Instance.damage = attackDamage;
         }
         // INSTANTIATE THE IMPACT PARTICLE SYSTEM ON IMPACT POSITION
         Instantiate(impactPS, transform.position, transform.rotation);

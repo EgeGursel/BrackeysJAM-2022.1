@@ -145,9 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d6a6fbe0cba9b4d9cf4eeefd26f18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  damagePopup: {fileID: 2146879447572673294, guid: 9c3705e4ff64fb4438cb331e4e228e4e, type: 3}
   attackDamage: 20
   impactPS: {fileID: 900744269628566678, guid: e44bd2e011fee4e45bb9a71badef9234, type: 3}
 --- !u!114 &8521786632926626891
