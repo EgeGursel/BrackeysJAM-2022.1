@@ -7,19 +7,12 @@ using TMPro;
 public class DamagePopup : MonoBehaviour
 {
     [HideInInspector] public int damage;
-    private TextMeshPro _text;
-    public static DamagePopup Instance
-    {
-        get; private set;
-    }
-    private void Awake()
-    {
-        Instance = this;
-    }
+    private TextMesh _text;
+
     // Start is called before the first frame update
     void Start()
     {
-        _text = GetComponent<TextMeshPro>();
+        _text = GetComponent<TextMesh>();
         _text.text = damage.ToString();
     }
 }

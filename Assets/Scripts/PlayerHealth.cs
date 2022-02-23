@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
             Die();
             return;
         }
-        CameraShake.Instance.Shake(1.1f, .2f);
+        CameraShake.Instance.Shake(1.5f, .2f);
         _anim.SetTrigger("Hurt");
     }
     private void Die()
