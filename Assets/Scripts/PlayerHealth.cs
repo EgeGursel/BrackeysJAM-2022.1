@@ -14,12 +14,13 @@ public class PlayerHealth : MonoBehaviour
     {
         _currHP = maxHP;
         _anim = GetComponent<Animator>();
+        HealthBar.Instance.SetMaxHealth(_currHP);
     }
 
     public void TakeDamage(int damage)
     {
         _currHP -= damage;
-        Debug.Log("Player HP: " + _currHP);
+        HealthBar.Instance.SetHealth(_currHP);
         if (_currHP <= 0)
         {
             Die();
