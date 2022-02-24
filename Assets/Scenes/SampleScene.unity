@@ -3464,7 +3464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8926921770295579762, guid: a2ba42dd8a9a0d44fb67fc496b0b5f2f, type: 3}
-  cooldown: 0.4
+  cooldownBetweenShots: 0.4
+  fullAuto: 0
 --- !u!95 &1617193070
 Animator:
   serializedVersion: 3

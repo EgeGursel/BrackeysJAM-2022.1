@@ -9,7 +9,9 @@ public class Shoot : MonoBehaviour
     public GameObject bulletPrefab;
 
     // COOLDOWN LENGTH BETWEEN SHOTS CAN BE CHANGED IN THE INSPECTOR / BY SCRIPT
-    public float cooldown;
+    public float cooldownBetweenShots;
+    public bool fullAuto;
+    private float _lastFired;
     private Transform _barrel;
     private Animator _anim;
     private bool attackCD = true;
@@ -20,9 +22,19 @@ public class Shoot : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (!fullAuto)
         {
-            Attack();
+            if (Input.GetButtonDown("Fire1") && attackCD)
+            {
+                AttackOnce();
+            }
+        }
+        else
+        {
+            if (Input.GetButton("Fire1") && attackCD)
+            {
+                StartCoroutine(Spray());
+            }
         }
     }
 
@@ -30,25 +42,30 @@ public class Shoot : MonoBehaviour
     IEnumerator AttackCooldown()
     {
         attackCD = false;
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(cooldownBetweenShots);
         attackCD = true;
     }
-    private void Attack()
+    private void AttackOnce()
     {
-        // ONLY ATTACK IF COOLDOWN IS OVER
-        if (!attackCD) return;
-        {
-            // PLAY WEAPON SHOT SOUND (NOT IMPLEMENTED YET SO COMMENTED OUT)
-            // AudioManager.instance.Play("rangedattack");
+        // PLAY WEAPON SHOT SOUND (NOT IMPLEMENTED YET SO COMMENTED OUT)
+        // AudioManager.instance.Play("rangedattack");
 
-            /* 
-            INSTANTIATE BULLET, 
-            SET ITS POSITION AND ROTATION IN ACCORDANCE TO THE BARREL OBJECT 
-            ANIMATE THE WEAPON, START THE WEAPON COOLDOWN
-            */
-            Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
-            _anim.SetTrigger("Shoot");
-            StartCoroutine(AttackCooldown());
-        }
+        /* 
+        INSTANTIATE BULLET, 
+        SET ITS POSITION AND ROTATION IN ACCORDANCE TO THE BARREL OBJECT 
+        ANIMATE THE WEAPON, START THE WEAPON COOLDOWN
+        */
+        Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
+        _anim.SetTrigger("Shoot");
+        StartCoroutine(AttackCooldown());
     }
+    private IEnumerator Spray()
+    {
+        attackCD = false;
+        Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
+        _anim.SetTrigger("Shoot"); 
+        yield return new WaitForSeconds(cooldownBetweenShots);
+        attackCD = true;
+    }
+
 }
