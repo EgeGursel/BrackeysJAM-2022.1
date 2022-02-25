@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         // Instantiate(dropPrefab, transform.position, transform.rotation);
 
         // DESTROY THE ENEMY
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     // CHECK COLLIDED OBJECT TAG ON COLLISION AND DAMAGE IT IF IT'S THE PLAYER
