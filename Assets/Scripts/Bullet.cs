@@ -10,6 +10,7 @@ ALSO DAMAGE ANY COLLIDED ENEMIES BY ACCESING THEIR <Enemy> SCRIPT
 public class Bullet : MonoBehaviour
 {
     // REFERENCES
+    public int speed;
     public float critChance;
     public int attackDamage; // THE VALUE CAN BE CHANGED VIA REFERENCING IT FROM ANOTHER SCRIPT OR THROUGH THE EDITOR
     private int _attackDamage;
@@ -21,7 +22,7 @@ public class Bullet : MonoBehaviour
         // GIVING VALUES TO THE REFERENCES ABOVE
         _rb = GetComponent<Rigidbody2D>();
         // MOVING THE BULLET'S RIGIDBODY2D FORWARD ON START
-        _rb.velocity = transform.right * 25;
+        _rb.velocity = transform.right * speed;
         _attackDamage = attackDamage;
     }
     private void OnTriggerEnter2D(Collider2D collision)

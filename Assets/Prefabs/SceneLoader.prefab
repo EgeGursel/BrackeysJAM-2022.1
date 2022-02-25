@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 8589229918444280623}
-  transitionTime: 0.5
+  transitionTime: 0.2
 --- !u!1 &8589229918354700542
 GameObject:
   m_ObjectHideFlags: 0

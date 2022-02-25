@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: test TS 1_1
+  m_Name: inside TS 1_2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -8892307278972827151, guid: f450e50b2d5942f4083658fce74c9d1a, type: 3}
+  m_Sprite: {fileID: -3365246364950674366, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
