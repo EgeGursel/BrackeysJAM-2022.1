@@ -35,7 +35,6 @@ public class Enemy : MonoBehaviour
         _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         _popupTM = damagePopup.GetComponent<TextMesh>();
     }
-
     // TAKE DAMAGE
     public void Damage(int damage, Color color)
     {
@@ -66,14 +65,14 @@ public class Enemy : MonoBehaviour
     }
 
     // CHECK COLLIDED OBJECT TAG ON COLLISION AND DAMAGE IT IF IT'S THE PLAYER
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             if (curTime <= 0)
             {
                 _playerHealth.TakeDamage(attackDamage);
-                curTime = 0.6f;
+                curTime = 0.5f;
             }
             else
             {
