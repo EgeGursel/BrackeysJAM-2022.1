@@ -42,44 +42,13 @@ SpriteAtlas:
       enableTightPacking: 1
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables:
-    - {fileID: 2800000, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
+    packables: []
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: -7880854528543700507, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: 5420533696521251123, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: 2787996412321748343, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: 4622733949526506412, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -1897857168411443856, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -7830072579777242990, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -3365246364950674366, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -4969728373495149401, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: 7849964396869379946, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: 8834714184958686020, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -8736518076265607727, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -8868056329998166730, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -7485888296137726184, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -4922856589108658123, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  - {fileID: -3791003167926961629, guid: b3df8409ebadf7d4f8a6201844c95e76, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - inside TS 1_8
-  - inside TS 1_9
-  - inside TS 1_11
-  - inside TS 1_10
-  - inside TS 1_13
-  - inside TS 1_12
-  - inside TS 1_2
-  - inside TS 1_3
-  - inside TS 1_14
-  - inside TS 1_0
-  - inside TS 1_1
-  - inside TS 1_6
-  - inside TS 1_7
-  - inside TS 1_4
-  - inside TS 1_5
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
   m_Tag: Map Atlas
   m_IsVariant: 0
