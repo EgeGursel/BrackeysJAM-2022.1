@@ -10,9 +10,9 @@ ALSO DAMAGE ANY COLLIDED ENEMIES BY ACCESING THEIR <Enemy> SCRIPT
 public class Bullet : MonoBehaviour
 {
     // REFERENCES
-    public int speed;
-    public int damage;
-    public float critChance;
+    [HideInInspector] public int speed;
+    [HideInInspector] public int damage;
+    [HideInInspector] public float critChance;
     public ParticleSystem impactPS; // REFERENCE TO THE PARTICLE SYSTEM THAT WILL BE INSTANTIATED WHEN THE BULLET COLLIDES WITH SOMETHING
     private Rigidbody2D _rb; // REFERENCE TO THE BULLET'S RIGIDBODY SO IT CAN MOVE
 

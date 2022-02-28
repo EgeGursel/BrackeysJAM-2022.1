@@ -9,16 +9,25 @@ public class Shoot : MonoBehaviour
     public GameObject bulletPrefab;
 
     // COOLDOWN LENGTH BETWEEN SHOTS CAN BE CHANGED IN THE INSPECTOR / BY SCRIPT
-    public float cooldownBetweenShots;
+    public int bulletSpeed;
+    public int bulletDamage;
+    public float critChance;
+    public float fireRate;
     public bool fullAuto;
     private float _lastFired;
     private Transform _barrel;
     private Animator _anim;
+    private Bullet _bullet;
     private bool attackCD = true;
     void Start()
     {
         _anim = GetComponent<Animator>();
         _barrel = transform.Find("Barrel");
+        _bullet = bulletPrefab.GetComponent<Bullet>();
+
+        _bullet.critChance = critChance;
+        _bullet.damage = bulletDamage;
+        _bullet.speed = bulletSpeed;
     }
     void Update()
     {
@@ -42,7 +51,7 @@ public class Shoot : MonoBehaviour
     IEnumerator AttackCooldown()
     {
         attackCD = false;
-        yield return new WaitForSeconds(cooldownBetweenShots);
+        yield return new WaitForSeconds(fireRate);
         attackCD = true;
     }
     private void AttackOnce()
@@ -64,7 +73,7 @@ public class Shoot : MonoBehaviour
         attackCD = false;
         Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
         _anim.SetTrigger("Shoot"); 
-        yield return new WaitForSeconds(cooldownBetweenShots);
+        yield return new WaitForSeconds(fireRate);
         attackCD = true;
     }
 
