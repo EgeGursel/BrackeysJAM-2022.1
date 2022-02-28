@@ -39,6 +39,6 @@ public class PlayerController : MonoBehaviour
         float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
 
-        _rb.MovePosition(_rb.position + _movement * moveSpeed * Time.fixedDeltaTime);       
+        _rb.velocity = _movement * moveSpeed;       
     }
 }
