@@ -6,33 +6,36 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    public Weapon weapon;
     public GameObject bulletPrefab;
-
-    // COOLDOWN LENGTH BETWEEN SHOTS CAN BE CHANGED IN THE INSPECTOR / BY SCRIPT
-    public int bulletSpeed;
-    public int bulletDamage;
-    public float critChance;
-    public float fireRate;
-    public bool fullAuto;
-    public bool shotgun;
     private float _lastFired;
     private Transform _barrel;
     private Animator _anim;
     private Bullet _bullet;
     private bool attackCD = true;
+    private KeyCode[] _keyCodes = {
+         KeyCode.Alpha1,
+         KeyCode.Alpha2,
+         KeyCode.Alpha3,
+         KeyCode.Alpha4,
+     };
+    private string[] _weapons = {
+        "Pistol",
+        "Rifle",
+        "Uzi",
+        "Shotgun",
+    };
+
     void Start()
     {
         _anim = GetComponent<Animator>();
         _barrel = transform.Find("Barrel");
         _bullet = bulletPrefab.GetComponent<Bullet>();
-
-        _bullet.critChance = critChance;
-        _bullet.damage = bulletDamage;
-        _bullet.speed = bulletSpeed;
+        SyncBullet();
     }
     void Update()
     {
-        if (!fullAuto)
+        if (!weapon.fullAuto)
         {
             if (Input.GetButtonDown("Fire1") && attackCD)
             {
@@ -46,33 +49,36 @@ public class Shoot : MonoBehaviour
                 StartCoroutine(Spray());
             }
         }
+        
+        for(int i = 0 ; i < _keyCodes.Length; i ++ )
+        {
+            if(Input.GetKeyDown(_keyCodes[i]))
+            {
+                SwitchWeapon(i);
+            }
+        }
     }
 
     // ATTACK COOLDOWN HAS TO BE OVER BEFORE THE ATTACK METHOD CAN BE CALLED
     IEnumerator AttackCooldown()
     {
         attackCD = false;
-        yield return new WaitForSeconds(fireRate);
+        yield return new WaitForSeconds(weapon.fireRate);
         attackCD = true;
     }
     private void AttackOnce()
     {
         // PLAY WEAPON SHOT SOUND (NOT IMPLEMENTED YET SO COMMENTED OUT)
-        // AudioManager.instance.Play("rangedattack");
+        // AudioManager.instance.Play("weapon.attackSound");
 
-        /* 
-        INSTANTIATE BULLET, 
-        SET ITS POSITION AND ROTATION IN ACCORDANCE TO THE BARREL OBJECT 
-        ANIMATE THE WEAPON, START THE WEAPON COOLDOWN
-        */
-        SendBullet(shotgun);
+        SendBullet(weapon.shotgun);
         StartCoroutine(AttackCooldown());
     }
     private IEnumerator Spray()
     {
         attackCD = false;
-        SendBullet(shotgun);
-        yield return new WaitForSeconds(fireRate);
+        SendBullet(weapon.shotgun);
+        yield return new WaitForSeconds(weapon.fireRate);
         attackCD = true;
     }
 
@@ -94,5 +100,18 @@ public class Shoot : MonoBehaviour
             }
             _barrel.localEulerAngles = new Vector3(_barrel.rotation.x, _barrel.rotation.y, 90);
         }
+    }
+    private void SwitchWeapon(int i)
+    {
+        Debug.Log("Switched to " + _weapons[i]);
+        weapon = Resources.Load<Weapon>("Scriptable Objects/" + _weapons[i]);
+        SyncBullet();
+    }
+
+    private void SyncBullet()
+    {
+        transform.localScale = new Vector3(weapon.width, weapon.height, 1);
+        _bullet.speed = weapon.bulletSpeed;
+        _bullet.damage = weapon.bulletDamage;
     }
 }

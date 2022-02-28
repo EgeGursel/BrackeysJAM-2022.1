@@ -16,10 +16,6 @@ public class Inventory : MonoBehaviour
      
     void Start()
     {
-        foreach (Transform child in transform)
-        {
-            weapons.Add(child.gameObject);
-        }
     }
     void Update()
     {
@@ -31,13 +27,8 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-    public void SwitchWeapon(int index)
+    public void SwitchWeapon(int i)
     {
-        foreach (GameObject weapon in weapons)
-        {
-            weapon.SetActive(false);
-        }
-        weapons[index].SetActive(true);
-        Debug.Log("Switched to " + weapons[index].name);
+        
     }
 }
