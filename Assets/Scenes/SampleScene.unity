@@ -437,7 +437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &359571204
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +486,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 8926921770295579762, guid: 93ef4488189a98d458ca20e5d37bbf47, type: 3}
   cooldown: 1
-  knockbackForce: 5
 --- !u!212 &359571207
 SpriteRenderer:
   m_ObjectHideFlags: 0
