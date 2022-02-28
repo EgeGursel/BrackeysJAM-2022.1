@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         _currHP -= damage;
         _popupTM.color = color;
         _popupTM.text = damage.ToString();
-        Instantiate(damagePopup, transform.position, Quaternion.Euler(0, 0, Random.Range(-20, 20)));
+        Instantiate(damagePopup, transform.position, Quaternion.Euler(0, 0, Random.Range(-16, 16)));
         if (_currHP <= 0)
         {
             Die();

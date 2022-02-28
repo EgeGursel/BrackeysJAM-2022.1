@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
          KeyCode.Alpha2,
          KeyCode.Alpha3,
          KeyCode.Alpha4,
+         KeyCode.Alpha5,
      };
 
      

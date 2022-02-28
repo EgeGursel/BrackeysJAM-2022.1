@@ -78,6 +78,11 @@ public class Shoot : MonoBehaviour
 
     private void SendBullet(bool shotgun)
     {
+        if (gameObject.name == "Rocket Launcher")
+        {
+            bulletPrefab.transform.localScale = new Vector3(4, 4, 1);
+        }
+
         if(!shotgun)
         {
             Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
