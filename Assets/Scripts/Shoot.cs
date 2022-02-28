@@ -14,6 +14,7 @@ public class Shoot : MonoBehaviour
     public float critChance;
     public float fireRate;
     public bool fullAuto;
+    public bool shotgun;
     private float _lastFired;
     private Transform _barrel;
     private Animator _anim;
@@ -64,17 +65,34 @@ public class Shoot : MonoBehaviour
         SET ITS POSITION AND ROTATION IN ACCORDANCE TO THE BARREL OBJECT 
         ANIMATE THE WEAPON, START THE WEAPON COOLDOWN
         */
-        Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
-        _anim.SetTrigger("Shoot");
+        SendBullet(shotgun);
         StartCoroutine(AttackCooldown());
     }
     private IEnumerator Spray()
     {
         attackCD = false;
-        Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
-        _anim.SetTrigger("Shoot"); 
+        SendBullet(shotgun);
         yield return new WaitForSeconds(fireRate);
         attackCD = true;
     }
 
+    private void SendBullet(bool shotgun)
+    {
+        if(!shotgun)
+        {
+            Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
+            _anim.SetTrigger("Shoot");
+        }
+        else
+        {
+            _barrel.Rotate(_barrel.rotation.x, _barrel.rotation.y, _barrel.rotation.z - 15f, Space.Self);
+            _anim.SetTrigger("Shoot");
+            for (int i = 0; i < 5; i++)
+            {
+                Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
+                _barrel.Rotate(_barrel.rotation.x, _barrel.rotation.y, _barrel.rotation.z + 6, Space.Self);
+            }
+            _barrel.localEulerAngles = new Vector3(_barrel.rotation.x, _barrel.rotation.y, 90);
+        }
+    }
 }
