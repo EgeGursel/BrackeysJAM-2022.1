@@ -1031,7 +1031,7 @@ MonoBehaviour:
   bulletSpeed: 30
   bulletDamage: 12
   critChance: 0.2
-  fireRate: 0.1
+  fireRate: 0.12
   fullAuto: 1
   shotgun: 0
 --- !u!212 &536875544
