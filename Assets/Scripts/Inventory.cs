@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<GameObject> weapons;
+    private List<GameObject> weapons = new List<GameObject>();
      private KeyCode[] keyCodes = {
          KeyCode.Alpha1,
          KeyCode.Alpha2,
@@ -16,7 +16,6 @@ public class Inventory : MonoBehaviour
      
     void Start()
     {
-        weapons = new List<GameObject>();
         foreach (Transform child in transform)
         {
             weapons.Add(child.gameObject);
