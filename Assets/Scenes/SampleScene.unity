@@ -489,7 +489,7 @@ MonoBehaviour:
   bulletDamage: 30
   critChance: 0.2
   fireRate: 0.5
-  fullAuto: 1
+  fullAuto: 0
   shotgun: 1
 --- !u!212 &430325509
 SpriteRenderer:
@@ -980,7 +980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &536875541
 Transform:
   m_ObjectHideFlags: 0
