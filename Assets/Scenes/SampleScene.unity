@@ -980,7 +980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &536875541
 Transform:
   m_ObjectHideFlags: 0
@@ -990,7 +990,7 @@ Transform:
   m_GameObject: {fileID: 536875540}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.312, y: -0.28, z: 0}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 1.6, y: 1, z: 1}
   m_Children:
   - {fileID: 653122856}
   m_Father: {fileID: 966922178}
@@ -4598,7 +4598,7 @@ GameObject:
   - component: {fileID: 841161546}
   - component: {fileID: 841161545}
   m_Layer: 9
-  m_Name: AR15
+  m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,6 +5097,7 @@ GameObject:
   - component: {fileID: 966922182}
   - component: {fileID: 966922183}
   - component: {fileID: 966922184}
+  - component: {fileID: 966922185}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -5297,6 +5298,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtPS: {fileID: 7660694112356785380, guid: e5e0317e4ebc53045a1a781dd4909486, type: 3}
   maxHP: 100
+--- !u!114 &966922185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966922176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c77a657343029d47a0d1a3f259c67cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &967172771
 GameObject:
   m_ObjectHideFlags: 0
