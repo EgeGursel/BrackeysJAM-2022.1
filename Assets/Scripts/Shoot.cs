@@ -81,6 +81,7 @@ public class Shoot : MonoBehaviour
     }
     public void SyncBullet()
     {
+        _anim.SetFloat("animSpeed", 0.5f/weapon.fireRate);
         transform.localScale = new Vector3(weapon.width, weapon.height, 1);
         _bullet.speed = weapon.bulletSpeed;
         _bullet.damage = weapon.bulletDamage;
