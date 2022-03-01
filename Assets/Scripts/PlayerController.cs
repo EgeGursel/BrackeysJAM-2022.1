@@ -24,11 +24,6 @@ public class PlayerController : MonoBehaviour
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
         _anim.SetFloat("MoveSpeed", _movement.sqrMagnitude);
-
-        if (_rb.velocity.y > _rb.velocity.x)
-        {
-            transform.localScale = new Vector3(1, -1, 1);
-        }
     }
 
     // MAKE PLAYER LOOK AT THE CURSOR AND MOVE FORWARD

@@ -6,9 +6,6 @@ public class PlayerDash : MonoBehaviour
 {
     public float dashSpeed, dashCooldown;
     private bool dashCD;
-    private KeyCode lastKeyCode;
-    private float InitialTouch;
-    private float touchDelay = 0.2f;
     private PlayerController _controller;
     private TrailRenderer _trail;
 
@@ -40,7 +37,6 @@ public class PlayerDash : MonoBehaviour
         StartCoroutine(DashCooldown());
         float currSpeed = _controller.moveSpeed;
         _controller.moveSpeed *= dashSpeed;
-        // _rb.MovePosition(transform.position + transform.right * dashSpeed);
         yield return new WaitForSeconds(0.15f);
         _controller.moveSpeed = currSpeed;
         _trail.enabled = false;
