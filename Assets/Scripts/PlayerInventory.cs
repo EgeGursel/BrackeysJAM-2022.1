@@ -72,6 +72,6 @@ public class PlayerInventory : MonoBehaviour
     public void SwitchWeapon(int i)
     {
         _shoot.weapon = Resources.Load<Weapon>("Scriptable Objects/" + _weapons[i]);
-        _shoot.SyncBullet();
+        _shoot.Sync();
     }
 }

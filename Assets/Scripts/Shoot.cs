@@ -18,7 +18,7 @@ public class Shoot : MonoBehaviour
         _anim = GetComponent<Animator>();
         _barrel = transform.Find("Barrel");
         _bullet = bulletPrefab.GetComponent<Bullet>();
-        SyncBullet();
+        Sync();
     }
     void Update()
     {
@@ -79,7 +79,7 @@ public class Shoot : MonoBehaviour
             _barrel.localEulerAngles = new Vector3(_barrel.rotation.x, _barrel.rotation.y, 90);
         }
     }
-    public void SyncBullet()
+    public void Sync()
     {
         _anim.SetFloat("animSpeed", 0.5f/weapon.fireRate);
         transform.localScale = new Vector3(weapon.width, weapon.height, 1);
