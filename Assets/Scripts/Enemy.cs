@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 {
     // HEALTH
     public int maxHP;
-    private int _currHP;
+    [HideInInspector] public int currHP;
 
     // VISUALS
     public GameObject damagePopup;
@@ -22,14 +22,11 @@ public class Enemy : MonoBehaviour
     public int attackDamage = 20;
     private PlayerHealth _playerHealth;
 
-    // DROP
-    public CoinCounter coinCounter;
-
     // Start is called before the first frame update
     // GIVING VALUES TO REFERENCES ABOVE
     void Start()
     {
-        _currHP = maxHP;
+        currHP = maxHP;
         _anim = GetComponent<Animator>();
         _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         _popupTM = damagePopup.GetComponent<TextMesh>();
@@ -37,16 +34,18 @@ public class Enemy : MonoBehaviour
     // TAKE DAMAGE
     public void Damage(int damage, Color color)
     {
-        _currHP -= damage;
         _popupTM.color = color;
         _popupTM.text = damage.ToString();
         Instantiate(damagePopup, transform.position, Quaternion.Euler(0, 0, Random.Range(-16, 16)));
-        if (_currHP <= 0)
+        if (currHP - damage > 0)
+        {
+            currHP -= damage;
+            _anim.SetTrigger("Hurt");
+        }
+        else
         {
             Die();
-            return;
         }
-        _anim.SetTrigger("Hurt");
     }
 
     // DIE (CALLED IN THE DAMAGE METHOD WHEN CURRENT HP IS LESS THAN OR EQUAL TO 0)
@@ -56,7 +55,7 @@ public class Enemy : MonoBehaviour
         // AudioManager.instance.Play("enemydeath");
 
         Instantiate(hurtPS, transform.position, transform.rotation);
-        coinCounter.AddCoins(Random.Range(2, 5));
+        CoinCounter.instance.AddCoins(1);
         gameObject.SetActive(false);
     }
 

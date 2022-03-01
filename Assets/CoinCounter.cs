@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// THIS SCRIPT CAN BE ACCESSED BY ANY SCRIPT, JUST WRITE: "CoinCounter.instance.AddCoins(integer amount)"
+
 public class CoinCounter : MonoBehaviour
 {
     private Animator _anim;
     private TextMeshProUGUI _text;
+    public static CoinCounter instance;
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -26,14 +26,15 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            Enemy _enemy = collision.GetComponent<Enemy>();
             float randValue = Random.value;
             if (randValue > 0.2)
             {
-                collision.GetComponent<Enemy>().Damage(damage, Color.yellow);
+                _enemy.Damage(damage, Color.yellow);
             }
             else if (randValue <= 0.2)
             {
-                collision.GetComponent<Enemy>().Damage(damage * 2, Color.red);
+                _enemy.Damage(damage * 2, Color.red);
             }
         }
         // INSTANTIATE THE IMPACT PARTICLE SYSTEM ON IMPACT POSITION

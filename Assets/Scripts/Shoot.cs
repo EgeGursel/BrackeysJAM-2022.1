@@ -69,12 +69,12 @@ public class Shoot : MonoBehaviour
         }
         else
         {
-            _barrel.Rotate(_barrel.rotation.x, _barrel.rotation.y, _barrel.rotation.z - 15f, Space.Self);
+            _barrel.Rotate(_barrel.rotation.x, _barrel.rotation.y, _barrel.rotation.z - 18f, Space.Self);
             _anim.SetTrigger("Shoot");
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 Instantiate(bulletPrefab, _barrel.position, _barrel.rotation);
-                _barrel.Rotate(_barrel.rotation.x, _barrel.rotation.y, _barrel.rotation.z + 6, Space.Self);
+                _barrel.Rotate(_barrel.rotation.x, _barrel.rotation.y, _barrel.rotation.z + 12, Space.Self);
             }
             _barrel.localEulerAngles = new Vector3(_barrel.rotation.x, _barrel.rotation.y, 90);
         }
