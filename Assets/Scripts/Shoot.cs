@@ -8,24 +8,11 @@ public class Shoot : MonoBehaviour
 {
     public Weapon weapon;
     public GameObject bulletPrefab;
-    private float _lastFired;
     private Transform _barrel;
     private Animator _anim;
     private Bullet _bullet;
     private bool attackCD = true;
-    private KeyCode[] _keyCodes = {
-         KeyCode.Alpha1,
-         KeyCode.Alpha2,
-         KeyCode.Alpha3,
-         KeyCode.Alpha4,
-     };
-    private string[] _weapons = {
-        "Pistol",
-        "Rifle",
-        "Uzi",
-        "Shotgun",
-    };
-
+    
     void Start()
     {
         _anim = GetComponent<Animator>();
@@ -47,14 +34,6 @@ public class Shoot : MonoBehaviour
             if (Input.GetButton("Fire1") && attackCD)
             {
                 StartCoroutine(Spray());
-            }
-        }
-        
-        for(int i = 0 ; i < _keyCodes.Length; i ++ )
-        {
-            if(Input.GetKeyDown(_keyCodes[i]))
-            {
-                SwitchWeapon(i);
             }
         }
     }
@@ -81,7 +60,6 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(weapon.fireRate);
         attackCD = true;
     }
-
     private void SendBullet(bool shotgun)
     {
         if(!shotgun)
@@ -101,14 +79,7 @@ public class Shoot : MonoBehaviour
             _barrel.localEulerAngles = new Vector3(_barrel.rotation.x, _barrel.rotation.y, 90);
         }
     }
-    private void SwitchWeapon(int i)
-    {
-        Debug.Log("Switched to " + _weapons[i]);
-        weapon = Resources.Load<Weapon>("Scriptable Objects/" + _weapons[i]);
-        SyncBullet();
-    }
-
-    private void SyncBullet()
+    public void SyncBullet()
     {
         transform.localScale = new Vector3(weapon.width, weapon.height, 1);
         _bullet.speed = weapon.bulletSpeed;
